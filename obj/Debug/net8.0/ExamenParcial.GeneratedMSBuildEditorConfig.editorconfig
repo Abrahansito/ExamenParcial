@@ -40,8 +40,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ABRAHAM/Documents/SEXTO CICLO USMP/PROGRAMACIÓN I/ExamenParcial/Views/Player/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyXENyZWF0ZS5jc2h0bWw=
+[C:/Users/ABRAHAM/Documents/SEXTO CICLO USMP/PROGRAMACIÓN I/ExamenParcial/Views/Jugadores/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVnYWRvcmVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ABRAHAM/Documents/SEXTO CICLO USMP/PROGRAMACIÓN I/ExamenParcial/Views/Player/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ABRAHAM/Documents/SEXTO CICLO USMP/PROGRAMACIÓN I/ExamenParcial/Views/Shared/Error.cshtml]

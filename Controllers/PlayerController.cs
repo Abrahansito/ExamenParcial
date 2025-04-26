@@ -35,6 +35,7 @@ namespace ExamenParcial.Controllers
         _context.Add(jugador);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
+        
         }
         return View(jugador);
 }
