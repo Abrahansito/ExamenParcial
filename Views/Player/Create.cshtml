@@ -1,0 +1,22 @@
+@model examenparcial.Models.Player
+
+@{
+    ViewBag.Title = "Jugadores";
+}
+
+
+<form asp-action="Create" method="post">
+    <label>Nombre:</label>
+    <input asp-for="Nombre" required />
+    
+    <label>Edad:</label>
+    <input asp-for="Edad" type="number" min="16" required />
+    
+    <label>Posición:</label>
+    <input asp-for="Posicion" required />
+    
+    <label>Equipo:</label>
+    <select asp-for="EquipoId" asp-items="ViewBag.Equipos"></select>
+
+    <button type="submit">Registrar</button>
+</form>
