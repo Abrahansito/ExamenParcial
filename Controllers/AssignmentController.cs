@@ -5,6 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using ExamenParcial.Models;
+using ExamenParcial.Data;
 
 namespace ExamenParcial.Controllers
 {
@@ -12,9 +16,11 @@ namespace ExamenParcial.Controllers
     public class AssignmentController : Controller
     {
         private readonly ILogger<AssignmentController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public AssignmentController(ILogger<AssignmentController> logger)
+        public AssignmentController(ILogger<AssignmentController> logger, ApplicationDbContext context)
         {
+            _context = context;
             _logger = logger;
         }
 
@@ -25,15 +31,15 @@ namespace ExamenParcial.Controllers
 
         public async Task<IActionResult> Asociar()
         {
-        ViewBag.Players = new SelectList(_context.Players, "Id", "Nombre");
-        ViewBag.Teams = new SelectList(_context.Teams, "Id", "Nombre");
+        ViewBag.Players = new SelectList(_context.DbSetPlayer, "Id", "Nombre");
+        ViewBag.Teams = new SelectList(_context.DbSetTeam, "Id", "Nombre");
         return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Asociar(int PlayerId, int TeamId)
         {
-        var existe = await _context.Assignments.AnyAsync(a => a.PlayerId == PlayerId && a.TeamId == TeamId);
+        var existe = await _context.DbSetAssignment.AnyAsync(a => a.PlayerId == PlayerId && a.TeamId == TeamId);
         if (!existe)
 
         {
@@ -44,37 +50,17 @@ namespace ExamenParcial.Controllers
 
         return RedirectToAction("Listar");
 
+        }
+
         public async Task<IActionResult> Listar()
         {
-        var data = await _context.Assignments
+        var data = await _context.DbSetAssignment
                 .Include(a => a.Player)
                 .Include(a => a.Team)
                 .ToListAsync();
                 
         return View(data);
         }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -84,4 +70,4 @@ namespace ExamenParcial.Controllers
             return View("Error!");
         }
     }
-}
+}   

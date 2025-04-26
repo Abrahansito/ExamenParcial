@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
+
 namespace ExamenParcial.Data;
 
 public class ApplicationDbContext : IdentityDbContext

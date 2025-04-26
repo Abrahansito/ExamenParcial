@@ -19,6 +19,11 @@ namespace ExamenParcial.Models
         [Required]
         public string? Posicion { get; set; }
 
+        [ForeignKey("Team")]
+        public int EquipoId { get; set; }
+        public Team? Team { get; set; }
+
+
         public ICollection<Assignment>? Assignments { get; set; }
     }
 }
